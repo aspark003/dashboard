@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Dashboard</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: ; /* Optional: Add a background image */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 100vh;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.5);  /* Optional: adds overlay effect */
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    h1 {
+      font-size: 60px;
+      color: black;
+      text-shadow: 1px 1px 2px white;
+    }
+
+    p {
+      font-size: 50px;
+      color: black;
+      margin: 10px 0;
+    }
+
+    a {
+      font-size: 18px;
+      color: #007BFF;
+      text-decoration: none;
+      margin-top: 20px;
+      display: inline-block;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>Welcome to Your Dashboard</h1>
+
+    <!-- Remove or comment out the profile information you don't want to display -->
+    {% if user %}
+      <!-- Commenting out the user profile details as requested -->
+      <!-- <p><strong>Username:</strong> {{ user.username }}</p> -->
+      <!-- <p><strong>Full Name:</strong> {{ user.fullname }}</p> -->
+      <!-- <p><strong>Address:</strong> {{ user.address }}</p> -->
+      <!-- <p><strong>Gender:</strong> {{ user.gender }}</p> -->
+      <!-- <p><strong>Age:</strong> {{ user.age }}</p> -->
+
+      <!-- You can add other custom content here, like a welcome message -->
+      <p>{{ user.username }}!</p> <!-- Only display username or custom info -->
+
+      <!-- Link to view all users (if needed) -->
+
+    {% else %}
+      <p style="color:red;">User profile not found.</p>
+    {% endif %}
+  </div>
+</body>
+</html>

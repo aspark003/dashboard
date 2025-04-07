@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Users</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+
+    .content {
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: black;
+    }
+
+    table {
+      width: 80%;
+      margin: 20px auto;
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>All Signed-Up Users</h1>
+
+    {% if profiles %}
+      <table>
+        <thead>
+          <tr>
+            <th>Phone</th>
+            <th>Username</th>
+            <th>Full Name</th>
+            <th>Address</th>
+            <th>Gender</th>
+            <th>Age</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for phone, user in profiles.items() %}
+            <tr>
+              <td>{{ phone }}</td>
+              <td>{{ user.username }}</td>
+              <td>{{ user.fullname }}</td>
+              <td>{{ user.address }}</td>
+              <td>{{ user.gender }}</td>
+              <td>{{ user.age }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No users found.</p>
+    {% endif %}
+     <a href="{{ url_for('home') }}">Back to Home</a>
+  </div>
+</body>
+</html>

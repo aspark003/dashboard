@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Profile</title>
+</head>
+<body>
+  <h1>User Profile</h1>
+
+  {% if user %}
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Full Name:</strong> {{ user.fullname }}</p>
+    <p><strong>Address:</strong> {{ user.address }}</p>
+    <p><strong>Gender:</strong> {{ user.gender }}</p>
+    <p><strong>Age:</strong> {{ user.age }}</p>
+  {% else %}
+    <p style="color:red">Profile not found.</p>
+  {% endif %}
+</body>
+</html>
